@@ -1,8 +1,5 @@
 #!/bin/sh
 docker network create jenkins
-mkdir jenkins-data
-mkdir jenkins-docker-certs
-mkdir jenkins-home
 docker rm -f jenkins-docker
 docker run --name jenkins-docker --rm --detach \
   --privileged --network jenkins --network-alias docker \
