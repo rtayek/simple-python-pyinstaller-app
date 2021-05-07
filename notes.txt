@@ -18,3 +18,21 @@ $ ls "C:/Program Files/Git/"
 bin/  etc/           LICENSE.txt        tmp/           unins000.msg
 cmd/  git-bash.exe*  mingw64/           unins000.dat   usr/
 dev/  git-cmd.exe*   ReleaseNotes.html  unins000.exe*
+
+rm -rf /var/cache/jenkins/*
+rm -rf  /var/lib/jenkins/*
+rm -rf /var/log/jenkins/*
+
+output from build:
+
+Check out from version control7s
+Checks if running on a Unix-like node<1s
+docker inspect -f . python:2-alpine— Shell Script<1s
+Checks if running on a Unix-like node<1s
+docker pull python:2-alpine— Shell Script<1s
+
++ docker pull python:2-alpine
+
+unable to resolve docker endpoint: open C:/Program Files/Git/certs/client/ca.pem: no such file or directory
+
+script returned exit code 1

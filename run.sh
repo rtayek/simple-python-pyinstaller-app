@@ -1,28 +1,30 @@
+#!/bin/sh
+cd /d/jenkins
 docker network create jenkins
-
+mkdir jenkins-data
+mkdir jenkins-docker-certs
+mkdir jenkins-home
+docker rm -f jenkins-docker
 docker run --name jenkins-docker --rm --detach \
   --privileged --network jenkins --network-alias docker \
   --env DOCKER_TLS_CERTDIR=/certs \
-  --volume jenkins-docker-certs:/certs/client \
-  --volume jenkins-data:/var/jenkins_home \
+  --volume "D:\jenkins-docker-certs"s:/certs/client \
+  --volume "D:\jenkins-data":/var/jenkins_home \
   docker:dind
-
-# run this build from the app!
 docker build -t myjenkins-blueocean:1.1 .
-
+docker rm -f jenkins-blueocean
 docker run --name jenkins-blueocean --rm --detach \
   --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
   --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
-  --volume jenkins-data:/var/jenkins_home \
-  --volume jenkins-docker-certs:/certs/client:ro \
-  --volume "D:\jenkins":/home \
+  --volume "D:\jenkins-data":/var/jenkins_home \
+  --volume "D:\jenkins-docker-certs":/certs/client:ro \
+  --volume "C:\Users\raz":/home \
   --publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:1.1
 
-# the above container has live windoze diretory mounted in /home!
-# as well as a copy of this directory in /app.
+# repository url in pipeline: file:///app
+# app is a clone of jenkins/simple-python-pyinstaller-app
 
-
-# https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
+# useful: https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
 
 # need both running
 
