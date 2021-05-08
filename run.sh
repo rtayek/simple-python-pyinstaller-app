@@ -4,7 +4,7 @@ docker rm -f jenkins-docker
 docker run --name jenkins-docker --rm --detach \
   --privileged --network jenkins --network-alias docker \
   --env DOCKER_TLS_CERTDIR=/certs \
-  --volume "D:\jenkins\jenkins-docker-certs"s:/certs/client \
+  --volume "D:\jenkins\jenkins-docker-certs":/certs/client \
   --volume "D:\jenkins\jenkins-data":/var/jenkins_home \
   docker:dind
 docker build -t myjenkins-blueocean:1.1 .

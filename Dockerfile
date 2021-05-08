@@ -11,6 +11,6 @@ RUN add-apt-repository \
        $(lsb_release -cs) stable"
 RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
-COPY . /app
+COPY . /duck
 
 RUN jenkins-plugin-cli --plugins "blueocean:1.24.6 docker-workflow:1.26"
