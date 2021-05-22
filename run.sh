@@ -14,8 +14,10 @@ docker run --name jenkins-blueocean --rm --detach \
   --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
   --volume "D:\jenkins\jenkins-data":/var/jenkins_home \
   --volume "D:\jenkins\jenkins-docker-certs":/certs/client:ro \
-  --volume "C:\Users\raz":/home \
+  --volume "C:\Users\raz":/home \dic
   --publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:1.1
+docker ps
+
 
 # repository url in pipeline: file:///app
 # app is a clone of jenkins/simple-python-pyinstaller-app

@@ -1,3 +1,7 @@
+gave tis up after posting on https://gitter.im/jenkinsci/jenkins
+now persuing https://www.jenkins.io/blog/2020/05/11/docker-windows-agents/
+but maybe i can just run jenkins on each machine.
+
 Trying to run the simple python install app tutorial
 
 https://github.com/jenkins-docs/simple-python-pyinstaller-app
