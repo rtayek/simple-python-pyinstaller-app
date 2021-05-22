@@ -1,0 +1,42 @@
+gave tis up after posting on https://gitter.im/jenkinsci/jenkins
+now persuing https://www.jenkins.io/blog/2020/05/11/docker-windows-agents/
+but maybe i can just run jenkins on each machine.
+
+Trying to run the simple python install app tutorial
+
+https://github.com/jenkins-docs/simple-python-pyinstaller-app
+
+unable to resolve docker endpoint: open C:/Program Files/Git/certs/client/ca.pem: no such file or directory
+
+in docker:dind container:
+DOCKER_TLS_CERTDIR='C:/Program Files/Git/certs'
+DOCKER_VERSION='20.10.6'
+
+in the myjenkins-blueocean:1.1 container:
+DOCKER_CERT_PATH='C:/Program Files/Git/certs/client'
+DOCKER_HOST=tcp://docker:2376
+DOCKER_TLS_VERIFY=1
+
+raz@rays8350 MINGW64 /d/jenkins ... 
+$ ls "C:/Program Files/Git/"
+bin/  etc/           LICENSE.txt        tmp/           unins000.msg
+cmd/  git-bash.exe*  mingw64/           unins000.dat   usr/
+dev/  git-cmd.exe*   ReleaseNotes.html  unins000.exe*
+
+rm -rf /var/cache/jenkins/*
+rm -rf  /var/lib/jenkins/*
+rm -rf /var/log/jenkins/*
+
+output from build:
+
+Check out from version control7s
+Checks if running on a Unix-like node<1s
+docker inspect -f . python:2-alpine— Shell Script<1s
+Checks if running on a Unix-like node<1s
+docker pull python:2-alpine— Shell Script<1s
+
++ docker pull python:2-alpine
+
+unable to resolve docker endpoint: open C:/Program Files/Git/certs/client/ca.pem: no such file or directory
+
+script returned exit code 1
